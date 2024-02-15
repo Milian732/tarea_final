@@ -8,6 +8,7 @@ pipeline {
         stage('Conectar local') {
             steps {
                 sh 'echo hola';
+                sh 'ls';
             }
         }
     }
