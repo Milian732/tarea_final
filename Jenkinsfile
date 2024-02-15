@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Conectar local') {
             steps {
-                sh 'echo hola';
+                sh '';
                 sh 'ls';
             }
         }
