@@ -16,6 +16,7 @@ pipeline {
                     sh './python-diff.py old.xlsx new.xlsx';
                     sh "sshpass -p $SSH_PASSWD scp -o StrictHostKeyChecking=no meta-script.sh adrian@172.18.0.4:/home/adrian/";
                     sh 'sshpass -p $SSH_PASSWD ssh adrian@172.18.0.4 "chmod +x /home/adrian/meta-script.sh"';
+                    sh 'sshpass -p $SSH_PASSWD ssh adrian@172.18.0.4 "./home/adrian/meta-script.sh"';
                 }
             }
         }
