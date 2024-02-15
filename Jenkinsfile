@@ -19,7 +19,7 @@ pipeline {
                     sh 'sshpass -p $SSH_PASSWD ssh adrian@172.18.0.4 "./home/adrian/meta-script.sh"';
                     def chatId = '6400577385'
                     def token = '6971444615:AAHSR3v68P6lesjeZajdw-EM7tPCRnHJyxA'
-                    def message = 'Funcionó la tarea noti-telegram!!'
+                    def message = 'La Tarea Final ha sido finalizada'
                     sh "curl -X POST -H 'Content-Type: application/json' -d '{\"chat_id\": \"${chatId}\", \"text\": \"${message}\", \"disable_notification\": false}' https://api.telegram.org/bot${token}/sendMessage";
                 }
             }
