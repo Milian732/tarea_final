@@ -20,7 +20,7 @@ pipeline {
                     sh 'pandoc -s Contratos.md -o Contratos.pdf --pdf-engine=wkhtmltopdf';
                     sh 'git add Contratos.pdf';
                     sh 'git commit -m "Agregado Contratos.pdf"';
-                    sh 'git push origin master';
+                    sh 'git push origin main';
                     sh "sshpass -p $SSH_PASSWD scp -o StrictHostKeyChecking=no meta-script.sh adrian@172.18.0.4:/home/adrian/";
                     sh 'sshpass -p $SSH_PASSWD ssh adrian@172.18.0.4 "chmod +x /home/adrian/meta-script.sh"';
                     
