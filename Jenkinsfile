@@ -22,7 +22,10 @@ pipeline {
                     sh 'git config --global user.name \'Milian732\''
                     sh 'git add Contratos.pdf';
                     sh 'git commit -m "Añadido"';
-                    sh 'git push origin main';
+                    withCredentials([usernamePassword(credentialsId: 'GIT', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                        sh("git tag -a some_tag -m 'Jenkins'")
+                        sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@<REPO> --tags')
+                    }
                     sh "sshpass -p $SSH_PASSWD scp -o StrictHostKeyChecking=no meta-script.sh adrian@172.18.0.4:/home/adrian/";
                     sh 'sshpass -p $SSH_PASSWD ssh adrian@172.18.0.4 "chmod +x /home/adrian/meta-script.sh"';
                     
