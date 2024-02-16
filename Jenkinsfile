@@ -50,17 +50,11 @@ pipeline {
     }
     post {
         success {
-            def chatId = '6400577385'
-            def token = '6971444615:AAHSR3v68P6lesjeZajdw-EM7tPCRnHJyxA'
-            def message = 'La Tarea Final se ha realizado correctamente'
-            sh "curl -X POST -H 'Content-Type: application/json' -d '{\"chat_id\": \"${chatId}\", \"text\": \"${message}\", \"disable_notification\": false}' https://api.telegram.org/bot${token}/sendMessage";
+            sh 'curl -X POST -H \'Content-Type: application/json\' -d \'{"chat_id": "902285901", "text": "YEEEEEEAAA!!!", "disable_notification": false}\'  https://api.telegram.org/bot6972167273:AAFfUCU_9JQyRVkQSbftk_Sc3FVqSpE_SEg/sendMessage'
         }
 
         failure {
-            def chatId = '6400577385'
-            def token = '6971444615:AAHSR3v68P6lesjeZajdw-EM7tPCRnHJyxA'
-            def message = 'ERROR: La Tarea Final ha fallado, mira los logs para más información'
-            sh "curl -X POST -H 'Content-Type: application/json' -d '{\"chat_id\": \"${chatId}\", \"text\": \"${message}\", \"disable_notification\": false}' https://api.telegram.org/bot${token}/sendMessage";
+            sh 'curl -X POST -H \'Content-Type: application/json\' -d \'{"chat_id": "902285901", "text": "Ha petado :( ", "disable_notification": false}\'  https://api.telegram.org/bot6972167273:AAFfUCU_9JQyRVkQSbftk_Sc3FVqSpE_SEg/sendMessage'
         }
 
   }
