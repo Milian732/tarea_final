@@ -19,6 +19,7 @@ pipeline {
                     sh './python-diff.py old.xlsx new.xlsx';
                     sh 'pandoc -s Contratos.md -o Contratos.pdf --pdf-engine=wkhtmltopdf';
                     sh 'git config --global user.email \'adrianmilianpalomares@gmail.com\''
+                    sh 'git config --global user.name \'Milian732\''
                     sh 'git add Contratos.pdf';
                     sh 'git commit -m "Añadido"';
                     sh 'git push origin main';
