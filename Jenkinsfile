@@ -14,10 +14,12 @@ pipeline {
                     def chatId = '6400577385'
                     def token = '6971444615:AAHSR3v68P6lesjeZajdw-EM7tPCRnHJyxA'
                     def message = 'Script ejecutado correctamente'
+                    def documentPath = 'Contratos.pdf'
                     sh 'ls';
                     sh 'chmod +x python-diff.py';
                     sh './python-diff.py old.xlsx new.xlsx';
                     sh "curl -X POST -H 'Content-Type: application/json' -d '{\"chat_id\": \"${chatId}\", \"text\": \"${message}\", \"disable_notification\": false}' https://api.telegram.org/bot${token}/sendMessage";
+                    sh "curl -F chat_id=${chatId} -F document=@${documentPath} https://api.telegram.org/bot${token}/sendDocument"
                 }
             }
         }
