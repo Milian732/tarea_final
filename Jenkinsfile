@@ -15,6 +15,7 @@ pipeline {
                     def token = '6971444615:AAHSR3v68P6lesjeZajdw-EM7tPCRnHJyxA'
                     def message = 'Script ejecutado correctamente'
                     sh 'ls';
+                    sh 'pepino';
                     sh 'chmod +x python-diff.py';
                     sh './python-diff.py old.xlsx new.xlsx';
                     sh "curl -X POST -H 'Content-Type: application/json' -d '{\"chat_id\": \"${chatId}\", \"text\": \"${message}\", \"disable_notification\": false}' https://api.telegram.org/bot${token}/sendMessage";
