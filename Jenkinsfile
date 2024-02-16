@@ -50,11 +50,11 @@ pipeline {
     }
     post {
         success {
-            sh 'curl -X POST -H \'Content-Type: application/json\' -d \'{"chat_id": "6400577385", "text": "YEEEEEEAAA!!!", "disable_notification": false}\'  https://api.telegram.org/bot6971444615:AAHSR3v68P6lesjeZajdw-EM7tPCRnHJyxA/sendMessage'
+            sh 'curl -X POST -H \'Content-Type: application/json\' -d \'{"chat_id": "6400577385", "text": "La Tarea Final se ha realizado correctamente", "disable_notification": false}\'  https://api.telegram.org/bot6971444615:AAHSR3v68P6lesjeZajdw-EM7tPCRnHJyxA/sendMessage'
         }
 
         failure {
-            sh 'curl -X POST -H \'Content-Type: application/json\' -d \'{"chat_id": "6400577385", "text": "Ha petado :( ", "disable_notification": false}\'  https://api.telegram.org/bot6971444615:AAHSR3v68P6lesjeZajdw-EM7tPCRnHJyxA/sendMessage'
+            sh 'curl -X POST -H \'Content-Type: application/json\' -d \'{"chat_id": "6400577385", "text": "ERROR: La Tarea Final ha fallado, mira los logs para más información :( ", "disable_notification": false}\'  https://api.telegram.org/bot6971444615:AAHSR3v68P6lesjeZajdw-EM7tPCRnHJyxA/sendMessage'
         }
 
   }
