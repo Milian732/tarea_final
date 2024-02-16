@@ -30,7 +30,7 @@ pipeline {
                     sh 'pandoc -s Contratos.md -o Contratos.pdf --pdf-engine=wkhtmltopdf';
                     sh 'git config --global user.email \'adrianmilianpalomares@gmail.com\''
                     sh 'git config --global user.name \'Milian732\''
-                    sh 'git add Contratos.pdf';
+                    sh 'git add .';
                     sh 'git commit -m "Añadido"';
                     withCredentials([usernamePassword(credentialsId: 'GIT', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                         sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/Milian732/tarea_final.git HEAD:main')
